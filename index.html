@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+
+<html lang="ka">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>წრფივი ალგებრა — მანქანური სწავლების კლუბი</title>
+<link href="index_assets\reveal.css" rel="stylesheet"/>
+<link href="index_assets\black.css" rel="stylesheet"/>
+<!-- Theme used for syntax highlighting of code -->
+<!-- <link rel="stylesheet" href="lib/css/zenburn.css"> -->
+<link href="index_assets\zenburn.css" rel="stylesheet"/>
+<!-- <link rel="stylesheet" href="index.css"> -->
+<link href="slides.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s00_eb77753b8aa7c3f9.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">01. წრფივი ალგებრა მანქანური სწავლებისთვის
+
+00:00–01:00 · 60 წამი
+
+დღეს ვნახავთ, როგორ შეიძლება კომპიუტერმა რიცხვებით აღწეროს საგანი და ამ რიცხვების მიხედვით მიიღოს გადაწყვეტილება. დაგვჭირდება მხოლოდ შეკრება, გამრავლება და კოორდინატები.
+
+ბოლოს თავად გამოთვლით პატარა მოდელის პასუხს. ყველა მაგალითი სასწავლოა: აქ გამოყენებული ხილის მონაცემები და წესები გამოგონილია.
+
+გააცანით ფორმატი: ჯერ ვუყურებთ მოძრაობას, შემდეგ ვჩერდებით, ვმსჯელობთ და ვცდილობთ პასუხის წინასწარ გამოცნობას.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s01_77723923d31872c4.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">02. წესს მაგალითებიდან ვპოულობთ
+
+01:00–02:30 · 90 წამი
+
+წარმოიდგინეთ, რომ გვინდა ვაშლისა და მსხლის გარჩევა. პროგრამას შეგვიძლია მზა წესი მივცეთ; მანქანური სწავლებისას კი წესის რიცხვით პარამეტრებს მაგალითების დახმარებით ვარჩევთ.
+
+სასწავლო მაგალითში გვაქვს აღწერა და სწორი პასუხი. სწავლა ამ მაგალითებზე შეცდომის შემცირებას ცდილობს. გამოყენებისას მოდელს ვაძლევთ ახალ აღწერას და ვიღებთ პროგნოზს.
+
+კომპიუტერს არ აქვს ადამიანის მსგავსი გაგება. პასუხი შეიძლება მცდარი იყოს. ჰკითხეთ აუდიტორიას, რომელი ნიშნით არჩევენ თვითონ ამ ორ ხილს.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s02_de90e61bc79352fb.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">03. რიცხვები აღწერს საგანს
+
+02:30–04:00 · 90 წამი
+
+ავირჩიოთ ორი ნიშანი: სიგანე და სიმაღლე, ორივე ერთსა და იმავე პირობით ერთეულში. ჩვენი პირველი საგნის სიგანეა 2, სიმაღლე — 3. ეს რეალური გაზომვები არ არის.
+
+ყოველთვის ჯერ სიგანეს ჩავწერთ, შემდეგ სიმაღლეს. [2, 3] და [3, 2] სხვადასხვა აღწერაა. რიცხვებს მნიშვნელობას აძლევს ის, თუ რა გავზომეთ და რა რიგით ჩავწერეთ.
+
+ორი ნიშანი ავირჩიეთ, რათა ნახატი სიბრტყეზე მოთავსდეს. რეალურ ამოცანაში შეიძლება ასობით ან ათასობით ნიშანი გვქონდეს.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s03_de90e61bc79352fb.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">04. ვექტორი აერთიანებს კოორდინატებს
+
+04:00–05:30 · 90 წამი
+
+ვექტორს აქ რიცხვების დალაგებული სიის სახით ვიყენებთ. ორი რიცხვი გვაძლევს სიბრტყეზე წერტილის კოორდინატებს. საწყისიდან ამ წერტილამდე დახატული ისარი იმავე ვექტორს აჩვენებს.
+
+გაჰყევით მოძრაობას: ორი ნაბიჯი მარჯვნივ, სამი ზემოთ. მეორე კოორდინატი არ ნიშნავს მეორე ცალკე წერტილს. ორივე ერთად აღწერს ერთ საგანს.
+
+აღნიშნეთ, რომ მონაცემის ვექტორი ფიზიკურ მოძრაობას არ მოითხოვს. ისარი გვეხმარება რიცხვების ურთიერთობის დანახვაში. სთხოვეთ მოსწავლეს ახსნას, სად იქნებოდა (3,2).</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s04_8d88b0ad3989df64.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">05. შეკრება აერთიანებს გადაადგილებებს
+
+05:30–07:00 · 90 წამი
+
+ჯერ ავიღოთ (2,1), შემდეგ (1,2). მეორე ისარი შეგვიძლია გადავიტანოთ პირველის ბოლოში: მისი სიგრძე და მიმართულება უცვლელია.
+
+საბოლოო წერტილი არის (3,3). კოორდინატებით ვკრებთ შესაბამის რიცხვებს: 2+1 და 1+2. ისრების ნახატი და რიცხვების მოქმედება ერთსა და იმავეს გვიყვება.
+
+ხილის ორი აღწერის ჯამი ახალ რეალურ ხილს ავტომატურად არ ნიშნავს. ეს მათემატიკური მოქმედებაა; მისი პრაქტიკული მნიშვნელობა ამოცანაზეა დამოკიდებული. ჰკითხეთ, შეიცვლება თუ არა ჯამი რიგის შეცვლით.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s05_b35dde5188929e82.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">06. რიცხვი ცვლის ვექტორის მასშტაბს
+
+07:00–08:30 · 90 წამი
+
+როდესაც ვექტორს 2-ზე ვამრავლებთ, ორივე კოორდინატს ვაორმაგებთ. ისარი იმავე მიმართულებით რჩება და ორჯერ გრძელდება.
+
+ნახევარზე გამრავლება ამოკლებს, უარყოფით რიცხვზე გამრავლება მიმართულებასაც აბრუნებს. ნულზე გამრავლებით მივიღებთ ნულოვან ვექტორს.
+
+უარყოფითი სიგანე ხილის გაზომვას ვერ აღწერს, მაგრამ უარყოფითი კოორდინატები ზოგად ვექტორულ სივრცეში სრულიად დასაშვებია. მაგალითად, მათ შეუძლიათ საშუალოდან გადახრა აღწერონ.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s06_eb77753b8aa7c3f9.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">07. სად მიგვიყვანს ორი მიმართულება?
+
+08:30–10:30 · 120 წამი
+
+20 წამი დაუთმეთ პირობის წაკითხვას. პირველი ისარი ერთი ნაბიჯია მარჯვნივ, მეორე — ერთი ნაბიჯი ზემოთ. პირველი ორჯერ გვჭირდება, მეორე — სამჯერ.
+
+მიეცით 40 წამი ინდივიდუალური ფიქრისთვის და 30 წამი მეზობელთან შედარებისთვის. სთხოვეთ პასუხი როგორც წყვილით, ისე პატარა ნახატით.
+
+ბოლო 30 წამში მოისმინეთ ორი განსხვავებული ახსნა. პასუხი ჯერ არ გაამხილოთ. გავრცელებული შეცდომაა მხოლოდ რიცხვების შეკრება და პასუხად 5-ის დაწერა.
+
+კითხვა: რა ვექტორს მივიღებთ?
+
+პასუხი: (2, 3)</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s07_eb77753b8aa7c3f9.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">08. საბაზისო ვექტორები
+
+10:30–11:30 · 60 წამი
+
+პასუხია (2,3). პირველი მიმართულება გვაძლევს ჰორიზონტალურ ნაწილს, მეორე — ვერტიკალურს. ამ ორი ისრის რიცხვებზე გამრავლებითა და შეკრებით სიბრტყის ნებისმიერ წერტილამდე მივალთ.
+
+მათ სტანდარტული ბაზისის ვექტორები ეწოდება: e₁=(1,0), e₂=(0,1). სახელის დაზეპირება აუცილებელი არ არის; მთავარი ისაა, რომ ორი დამოუკიდებელი მიმართულებით ყველა ვექტორი ავაწყოთ.
+
+ეს ხიდია მატრიცისკენ: თუ ვიცით, სად მიდის თითოეული საბაზისო ისარი, მალე ნებისმიერი ვექტორის ახალ მდებარეობასაც ვიპოვით.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s08_8d88b0ad3989df64.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">09. ერთი მიმართულება მხოლოდ წრფეს ფარავს
+
+11:30–13:00 · 90 წამი
+
+თუ მხოლოდ (1,1) გვაქვს, მისი გამრავლებით ყველა წერტილს ვერ მივწვდებით. რამდენჯერაც უნდა გავზარდოთ ან შევაბრუნოთ, ყოველთვის იმავე დიაგონალზე ვრჩებით.
+
+მეორე ისარი (2,2) არაფერს ცვლის: ის უკვე პირველის ორმაგია. დამოუკიდებელი ახალი მიმართულება გვჭირდება, მაგალითად (1,0).
+
+ჰკითხეთ, მივაღწევთ თუ არა (2,1)-ს მხოლოდ (1,1)-ის გამრავლებით. აქ არ გვჭირდება ფორმალური თეორემა: ნახატზე ჩანს, რომ პირველი ორი კოორდინატი ყოველთვის ტოლი იქნება.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s09_de90e61bc79352fb.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">10. მატრიცა გარდაქმნის ვექტორს
+
+13:00–14:30 · 90 წამი
+
+მატრიცა რიცხვების მართკუთხა ცხრილია. ამ მაგალითში ის წესს აღწერს: პირველი კოორდინატი გააორმაგე, მეორე უცვლელი დატოვე.
+
+თუ შეყვანაა (1,2), პასუხია (2,2). ეს არ არის ორივე რიცხვის გაორმაგება. ჰორიზონტალური მიმართულება იჭიმება, ვერტიკალური უცვლელი რჩება.
+
+მატრიცები მონაცემების შესანახადაც გამოიყენება, მაგრამ ახლა ყურადღებას მათ მოქმედებაზე ვამახვილებთ. მომდევნო ნახატზე მთელ ბადეს ერთად გარდავქმნით.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s10_bfbf7d4895f90d70.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">11. ერთი წესი მოქმედებს მთელ სიბრტყეზე
+
+14:30–16:00 · 90 წამი
+
+ყოველი წერტილის პირველი კოორდინატი ორმაგდება. ამიტომ ვერტიკალური ბადის ხაზები ერთმანეთს შორდება, ჰორიზონტალური დონეები კი იმავე სიმაღლეზე რჩება.
+
+გააჩერეთ ბოლო კადრი და შეადარეთ რამდენიმე წერტილი. საწყისი (0,0) ისევ საწყისია. სწორი ხაზები სწორ ხაზებად რჩება.
+
+წრფივი გარდაქმნა ინარჩუნებს შეკრებასა და რიცხვზე გამრავლებას: ჯერ შეკრება და შემდეგ გარდაქმნა იმავე შედეგს გვაძლევს, რასაც ცალ-ცალკე გარდაქმნა და შეკრება. მხოლოდ ხაზების სისწორე სრული განსაზღვრება არ არის.
+
+ჰკითხეთ: ყველა ისრის სიგრძე ორმაგდება? ვერტიკალური ისარი გვაძლევს საწინააღმდეგო მაგალითს.
+
+ფორმალური ჩანაწერია T(u+v)=T(u)+T(v) და T(cu)=cT(u), ყველა u,v ვექტორისა და c რიცხვისთვის. ეს ორი პირობა განსაზღვრავს წრფივობას; კერძოდ T(0)=0.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s11_c59ee256adf2c873.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">12. სვეტები გვიჩვენებს ახალ მიმართულებებს
+
+16:00–17:30 · 90 წამი
+
+ახლა სხვა მატრიცა გვაქვს: პირველი სვეტია (1,0), მეორე — (1,1). პირველი გვეუბნება, სად გადავა e₁, მეორე — სად გადავა e₂.
+
+ვექტორი (2,1) ნიშნავს ორ პირველ და ერთ მეორე საბაზისო მიმართულებას. გარდაქმნის შემდეგაც ორი პირველი ახალი ისარი და ერთი მეორე ახალი ისარი უნდა ავიღოთ.
+
+გამოდის 2(1,0)+(1,1)=(3,1). ეს მატრიცა-ვექტორის გამრავლების გეომეტრიული აზრია. თითოეული სვეტი შესატანია, ხოლო შეყვანის კოორდინატები მათ რაოდენობას განსაზღვრავს.
+
+გაიმეორეთ ანიმაცია ერთხელ და ამჯერად მოსწავლეებს სთხოვეთ თქვან, რომელი ისარი სად მიდის.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s12_bfbf7d4895f90d70.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">13. სად აღმოჩნდება ეს ვექტორი?
+
+17:30–19:00 · 90 წამი
+
+პირველი 20 წამი დაუთმეთ იმას, თუ რომელი რიცხვებია პირველ და მეორე სვეტში. სთხოვეთ, სვეტი სტრიქონში არ აერიოთ.
+
+შემდეგ 40 წამი მისცეთ გამოსათვლელად: ერთხელ პირველი სვეტი, ორჯერ მეორე. სურვილისამებრ გამოიყენონ ბადე და ისრები.
+
+ბოლო 30 წამი მოისმინეთ ახსნა. სწორი შედეგის გარდა გვაინტერესებს გზა: რატომ გამრავლდა მეორე სვეტი ორზე? პასუხი შემდეგ კადრზეა.
+
+კითხვა: სად გადავა (1,2)?
+
+პასუხი: (3,2)</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s13_eb77753b8aa7c3f9.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">14. პასუხს სვეტების კომბინაცია გვაძლევს
+
+19:00–20:00 · 60 წამი
+
+პირველი სვეტის ერთი ასლი არის (1,0), მეორის ორი ასლი — (2,2). მათი ჯამია (3,2).
+
+სტრიქონებით იგივე პასუხს მივიღებთ: პირველი კომპონენტია 1×1+1×2=3; მეორე — 0×1+1×2=2.
+
+შეადარეთ ორი გზა. სვეტები გვაჩვენებს, როგორ ვაწყობთ გამოსავალ ვექტორს, ხოლო სტრიქონები — როგორ ვითვლით მის თითოეულ კომპონენტს.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s14_77723923d31872c4.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">15. მოქმედებების რიგი ცვლის შედეგს
+
+20:00–21:30 · 90 წამი
+
+ავიღოთ x=(1,0). A ჰორიზონტალურ კოორდინატს აორმაგებს, B კი 90 გრადუსით საათის ისრის საწინააღმდეგოდ აბრუნებს.
+
+ჯერ A: (1,0) ხდება (2,0); შემდეგ B: მივიღებთ (0,2). პირიქით, ჯერ B გვაძლევს (0,1)-ს, რომელსაც ჰორიზონტალური გაჭიმვა აღარ ცვლის.
+
+ამიტომ B(Ax) და A(Bx) ზოგადად სხვადასხვა პასუხია. BA ჩანაწერში მარჯვნივ მდგომი მოქმედება პირველად სრულდება. დღეს მთლიანი მატრიცების გამრავლებას არ გამოვითვლით.
+
+აქ ნაჩვენებია კონკრეტული საწინააღმდეგო მაგალითი. ეს არ ნიშნავს, რომ ნებისმიერი ორი მატრიცის რიგის შეცვლა ყოველთვის სხვადასხვა შედეგს იძლევა.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s15_8d88b0ad3989df64.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">16. ორი ვექტორიდან ვიღებთ ერთ ქულას
+
+21:30–23:30 · 120 წამი
+
+ვექტორების სკალარული ნამრავლი ასე ითვლება: შესაბამის კომპონენტებს ვამრავლებთ და შედეგებს ვკრებთ. პასუხი ერთი რიცხვია.
+
+ავიღოთ w=(2,−1) და x=(3,1). პირველი წვლილია 6, მეორე — −1. ჯამი არის 5. უარყოფითი წონა შესაბამისი ნიშნის წვლილს ამცირებს.
+
+მანქანურ სწავლაში x აღწერს მაგალითს, w კი შეიცავს წონებს. წონა აჩვენებს, როგორ მოქმედებს კონკრეტული ნიშანი ქულაზე, როცა სხვა ნიშნები უცვლელია.
+
+სთხოვეთ აუდიტორიას გამოთვალოს იგივე წონებით x=(1,3). პასუხია −1. აღნიშნეთ, რომ ქულა თავისთავად ალბათობა არ არის.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s16_f24c231656a8ea8b.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">17. პროექციას აქვს სიდიდე და ნიშანი
+
+23:30–25:00 · 90 წამი
+
+ამჯერად w=(1,0), ანუ ერთეულოვანი ჰორიზონტალური ისარი. მისი სკალარული ნამრავლი x-თან უბრალოდ x-ის ჰორიზონტალურ კომპონენტს გვაძლევს.
+
+წყვეტილი ხაზი აჩვენებს პროექციას: x=(2,1)-ისთვის პასუხია 2. x=(0,2)-ისთვის ნული, ხოლო x=(−2,1)-ისთვის −2.
+
+ზოგადად სკალარული ნამრავლი დამოკიდებულია მიმართულებაზეც და სიგრძეებზეც. მხოლოდ ერთეულოვანი w-ის შემთხვევაში უდრის იგი მიმართულებიან პროექციის სიგრძეს. ამიტომ დიდი ქულა ყოველთვის უფრო მსგავს მიმართულებას არ ნიშნავს.
+
+ჰკითხეთ, რატომ ქრება ვერტიკალური კომპონენტის წვლილი ამ კონკრეტულ მაგალითში.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s17_bfbf7d4895f90d70.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">18. ქულა გვაძლევს კატეგორიას
+
+25:00–26:30 · 90 წამი
+
+დავუბრუნდეთ ხილს. ავიღოთ წონები w=(1,−1) და b=0. ქულა სიგანისა და სიმაღლის სხვაობაა. ჩვენი გამოგონილი წესი ამბობს: s≥0 — ვაშლი; s&lt;0 — მსხალი.
+
+აქ წესს ხელით ვირჩევთ, რათა მოქმედება გასაგები იყოს. ეს ჯერ ნასწავლი კლასიფიკატორი არ არის. რეალურ სწავლაში პარამეტრების შერჩევა მონაცემებს უნდა დაეყრდნოს.
+
+კლასიფიკაცია ნიშნავს კატეგორიის არჩევას. არც ეს ორი ნიშანი და არც ეს ხაზი ყველა რეალურ ხილს საიმედოდ ვერ გაარჩევს. შეგვიძლია გვქონდეს მაღალი ვაშლი ან განიერი მსხალი.
+
+გამოთვალეთ (3,2): ქულაა 1, ამიტომ წესი ირჩევს ვაშლს. (2,3)-ისთვის ქულაა −1 და პასუხია მსხალი.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s18_8d88b0ad3989df64.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">19. ნულოვანი ქულა ქმნის საზღვარს
+
+26:30–28:00 · 90 წამი
+
+წესის პასუხი იქ იცვლება, სადაც ქულა ნულია. ჩვენი მაგალითისთვის x₁−x₂=0, ანუ x₁=x₂. ეს დიაგონალური წრფეა.
+
+ხაზის ქვემოთ სიგანე მეტია სიმაღლეზე და ქულა დადებითია. ზემოთ ქულა უარყოფითია. თვითონ ხაზზე ჩვენი შეთანხმებით ვაშლს ვირჩევთ.
+
+ჰკითხეთ, შეიცვლება თუ არა პასუხი, როცა წერტილი იმავე მხარეს მოძრაობს. ქულის სიდიდე შეიცვლება, მაგრამ კატეგორია აუცილებელი არ არის შეიცვალოს.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s19_de90e61bc79352fb.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">20. თავისუფალი წევრი წევს საზღვარს
+
+28:00–29:30 · 90 წამი
+
+b-ს თავისუფალი წევრი, ან bias, ეწოდება. თუ b=1, ნულოვანი ქულის საზღვარია x₂=x₁+1. მისი დახრილობა უცვლელია, მდებარეობა კი იცვლება.
+
+წონები საზღვრის მიმართულებას უკავშირდება, თავისუფალი წევრი კი მის გადაწევას. აჩვენეთ წერტილი, რომლის პასუხიც ამ გადაწევამ შეცვალა.
+
+ზუსტი მათემატიკური ტერმინით Wx+b არის აფინური გარდაქმნა; b=0-ის შემთხვევაში წრფივია. მანქანურ სწავლაში ასეთ მოდელებს ხშირად მაინც წრფივ მოდელებს უწოდებენ. ტერმინის განსხვავება აღნიშნეთ მოკლედ.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s20_595893735ee1ddb6.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">21. მატრიცა ითვლის რამდენიმე ქულას
+
+29:30–31:00 · 90 წამი
+
+მატრიცის თითოეული სტრიქონი შეიძლება ცალკე წონის ვექტორი იყოს. პირველი სტრიქონი იყოს (1,−1), მეორე — (−1,1).
+
+შეყვანისთვის (4,1) პირველი ქულაა 3, მეორე — −3. Wx ერთდროულად გვაძლევს ორივე სკალარულ ნამრავლს.
+
+ამ მაგალითში უფრო დიდ ქულას ვირჩევთ. ეს ქულები ალბათობები არ არის და მათი ჯამი 1 არ უნდა იყოს. მატრიცა არის მრავალი მსგავსი გამოთვლის შეკრული ჩანაწერი.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s21_de90e61bc79352fb.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">22. სტრიქონები სხვადასხვა მაგალითია
+
+31:00–32:30 · 90 წამი
+
+სამი მაგალითის ვექტორები X-ში სტრიქონებად ჩავწეროთ: (3,1), (1,3), (2,2). სამი სტრიქონი ნიშნავს სამ მაგალითს, ორი სვეტი — ორ ნიშანს.
+
+აქ თითოეული x სტრიქონადაა შენახული. ამიტომ ქულების ცხრილს ვწერთ XWᵀ. ზედა T ნიშნავს ტრანსპონირებას: სტრიქონები და სვეტები ადგილებს ცვლიან.
+
+შედეგი არის სამი სტრიქონი და ორი ქულა თითო სტრიქონში: (2,−2), (−2,2), (0,0). ტოლი ქულებისთვის ცალკე შეთანხმება გვჭირდება.
+
+ამ ეტაპზე მთავარი ფორმაა: შიდა ზომები უნდა ემთხვეოდეს. ნუ მოსთხოვთ მთლიანი წესის დაზეპირებას.
+
+ამ სპეციალურ მაგალითში W სიმეტრიულია, ამიტომ Wᵀ=W და ჩანაწერში რიცხვები არ იცვლება. ზოგადი მატრიცისთვის ტრანსპონირება ნამდვილად ცვლის სტრიქონებსა და სვეტებს.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s22_77723923d31872c4.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">23. სწავლისას ვცვლით პარამეტრებს
+
+32:30–34:30 · 120 წამი
+
+დასაწყისში მოდელს შეიძლება ცუდი წონები ჰქონდეს. ვადარებთ მის პასუხებს ცნობილ კატეგორიებს და ვიღებთ შეცდომის საზომს. მერე პარამეტრებს ვცვლით.
+
+ანიმაციაში საზღვარი წინასწარ შერჩეული ნაბიჯებით მოძრაობს; ეს სასწავლო დემონსტრაციაა და არა აქ გაშვებული ოპტიმიზაციის ალგორითმი.
+
+რეალური ალგორითმი იყენებს დანაკარგის ფუნქციას და მისი შემცირების წესს. დღეს არც წარმოებული გვჭირდება, არც კონკრეტული ოპტიმიზატორის ფორმულა.
+
+ცვლილება ყოველთვის გაუმჯობესებას არ იძლევა. ხელახლა უნდა გავზომოთ შედეგი. სთხოვეთ მოსწავლეებს მიუთითონ, რომელი წერტილის პასუხი შეიცვალა და რატომ.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s23_b35dde5188929e82.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">24. შეცდომის კვადრატი ზომავს აცდენას
+
+34:30–36:00 · 90 წამი
+
+ერთი წუთით კატეგორიებიდან რიცხვის პროგნოზზე გადავიდეთ. მაგალითად, შეიძლება ვცდილობდეთ ნივთის მასის პროგნოზს. ორი სწორი პასუხი იყოს 3 და 3; პროგნოზები — 2 და 5.
+
+შეცდომებია −1 და 2. მათი კვადრატებია 1 და 4, საშუალო კი 2.5. ასე დიდ შეცდომას მეტი წვლილი აქვს, ხოლო დადებითი და უარყოფითი შეცდომები ერთმანეთს არ აუქმებს.
+
+ეს საშუალო კვადრატული შეცდომაა, რიცხვითი პროგნოზის გავრცელებული საზომი. კლასიფიკაციისთვის ხშირად სხვა დანაკარგს იყენებენ. ჩვენი წინა კლასიფიკატორისთვის მას ავტომატურად არ ვირჩევთ.
+
+ნახატზე თეთრი წერტილი სწორი მნიშვნელობაა, ცისფერი — პროგნოზი. კვადრატების გვერდების შეფარდება 1:2-ია, ამიტომ ფართობების შეფარდება 1:4 გამოდის.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s24_b35dde5188929e82.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">25. ახალი მაგალითები ამოწმებს წესს
+
+36:00–37:30 · 90 წამი
+
+თუ მოდელმა ნანახ მაგალითებზე კარგი პასუხი მოგვცა, ეს ჯერ არ ნიშნავს, რომ ახალ შემთხვევებზეც კარგად იმუშავებს. შეიძლება შემთხვევითი თავისებურებები დაიმახსოვრა.
+
+ამიტომ მაგალითების ნაწილს სწავლისგან ცალკე ვინახავთ და შედეგს მათზეც ვამოწმებთ. მოდელს სწავლისას ამ პასუხებზე წვდომა არ უნდა ჰქონდეს.
+
+მონაცემები რეალურ ამოცანას უნდა ჰგავდეს. მხოლოდ პატარა ვაშლებზე სწავლა და მხოლოდ დიდ ვაშლებზე გამოყენება შეიძლება პრობლემური იყოს.
+
+ჰკითხეთ: რატომ არ კმარა ტესტის სწორი პასუხების დამახსოვრება იმის დასამტკიცებლად, რომ თემა გავიგეთ? ანალოგია მოკლედ დააკავშირეთ მოდელთან.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s25_652f167f837c87de.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">26. ქსელის ფენა აერთიანებს წონიან ჯამებს
+
+37:30–39:00 · 90 წამი
+
+ნეირონული ქსელის სახელმა არ შეგვაშინოს. ერთ ფენაში რამდენიმე შეწონილი ჯამი გამოითვლება. თითოეულ მათგანს თავისი წონები და თავისუფალი წევრი აქვს.
+
+ორი შეყვანისა და სამი გამოსავლისთვის W არის 3×2 მატრიცა, b კი სამი რიცხვის ვექტორი. აქ ხაზები გამრავლების კავშირებს აღნიშნავს.
+
+ჩვენს მაგალითში x=(2,1), მატრიცის სტრიქონებია (1,0), (0,1), (1,−1), ხოლო b=0. შედეგია (2,1,1). ეს ბიოლოგიური ტვინის ზუსტი მოდელი არ არის.
+
+პირველი დიდი ქსელი მხოლოდ სტრუქტურის სქემაა: ფერები და წრის შევსება გაზომილი ალბათობები არ არის. შემდეგ კადრზე ზუსტად გამოთვლილ 2→3 მაგალითზე გადავდივართ. გამოტოვებული კავშირების წონა ნულია; მწვანე კავშირია +1, წითელი −1.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s26_8d88b0ad3989df64.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">27. ReLU ნულავს უარყოფით მნიშვნელობებს
+
+39:00–40:30 · 90 წამი
+
+ხშირად ფენის შემდეგ არაწრფივ მოქმედებას ვასრულებთ. ReLU უარყოფით რიცხვს ნულით ცვლის, დადებითს კი უცვლელად ტოვებს.
+
+თუ გვაქვს (−2,1,3), შედეგია (0,1,3). გრაფიკს ნულთან კუთხე აქვს. ეს არ არის ერთი სწორი ხაზი მთელ სიბრტყეზე.
+
+მხოლოდ აფინური ფენების ერთმანეთზე მიყოლება ისევ ერთ აფინურ მოქმედებად შეიკვრება. არაწრფივი აქტივაციები ქსელს უფრო რთული დამოკიდებულებების აღწერის საშუალებას აძლევს.
+
+დღეს ქსელს არ ვწვრთნით. მიზანია ამოვიცნოთ ნაცნობი ნაწილი: ვექტორი, მატრიცა, შეწონილი ჯამი და ახალი მარტივი ფუნქცია.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s27_bfbf7d4895f90d70.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">28. გამოიყენეთ ყველაფერი ერთად
+
+40:30–42:30 · 120 წამი
+
+30 წამი დაუთმეთ პირობას: x აღწერს ხილს, წონებია (1,−1), თავისუფალი წევრი — 2. წესი ისევ s≥0-ისას ვაშლს ირჩევს.
+
+45 წამი ინდივიდუალური მუშაობისთვის: გამოთვალეთ s; აირჩიეთ კატეგორია; თქვით, რა შეიცვლება, თუ სიმაღლე 3-დან 5-მდე გაიზრდება.
+
+30 წამი წყვილებში პასუხების შესადარებლად და 15 წამი ხელის აწევით შესაჯამებლად. სურვილისამებრ ჰკითხეთ ძლიერ მოსწავლეებს, როგორია ახალი საზღვრის განტოლება.
+
+კითხვა: 1. რა არის s?  2. რომელი კატეგორია?  3. თუ x=(2,5)?
+
+პასუხი: s=1 → ვაშლი; ახალი s=−1 → მსხალი; საზღვარი x₂=x₁+2.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s28_de90e61bc79352fb.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">29. საზღვრის გადაკვეთა ცვლის პასუხს
+
+42:30–43:30 · 60 წამი
+
+თავდაპირველი ქულაა 2−3+2=1, ამიტომ შეთანხმებული წესი ირჩევს ვაშლს. გაზრდილი სიმაღლისთვის მივიღებთ 2−5+2=−1-ს და პასუხია მსხალი.
+
+თუ ვინმემ თავისუფალი წევრი ორივე კოორდინატს დაუმატა, აჩვენეთ, რომ აქ b ერთ საბოლოო ქულას ერთხელ ემატება.
+
+ჰკითხეთ მოსწავლეებს, რისი ახსნა შეუძლიათ ახლა ნახატით. სწორი პასუხი კარგია, მაგრამ განსაკუთრებით მნიშვნელოვანია, როგორ უკავშირდება გამოთვლა საზღვრის ორ მხარეს.</aside>
+</section>
+<section data-background-color="#06090c" data-background-size="contain" data-background-video="index_assets/s29_b35dde5188929e82.mp4" data-background-video-muted="">
+<aside class="notes" data-markdown="">30. რიცხვებიდან პროგნოზამდე
+
+43:30–45:00 · 90 წამი
+
+ვექტორი აღწერს მაგალითს. მატრიცა გარდაქმნის ვექტორს ან რამდენიმე ქულას ითვლის. წონები და თავისუფალი წევრი მოდელის პარამეტრებია; სწავლა მათ მონაცემების მიხედვით ცვლის.
+
+ჩვენ ავაგეთ პატარა გამოთვლა და გავიგეთ მისი გეომეტრია. ეს მანქანური სწავლების მხოლოდ საწყისი ნაწილია. შემდეგ შეხვედრაზე შეგვიძლია რეალური მონაცემები ჩავტვირთოთ და იგივე მოქმედებები Python-ით შევასრულოთ.
+
+ბოლო წუთი დაუთმეთ კითხვებს და გასასვლელ პასუხს: ერთ წინადადებაში ახსენით, რით განსხვავდება მონაცემის ვექტორი წონის ვექტორისგან. ორივე რიცხვების სიაა, მაგრამ სხვადასხვა როლი აქვს.</aside>
+</section>
+</div>
+</div>
+<script src="index_assets\reveal.js"></script>
+<script src="index_assets\notes.js"></script>
+<!-- To include plugins, see: https://revealjs.com/plugins/ -->
+<script src="index_assets\markdown.js"></script>
+<!-- <script src="index.js"></script> -->
+<script>
+      Reveal.initialize({
+        /// The list of RevealJS plugins.
+        plugins: [ RevealMarkdown, RevealNotes ],
+        // The "normal" size of the presentation, aspect ratio will
+        // be preserved when the presentation is scaled to fit different
+        // resolutions. Can be specified using percentage units.
+        width: '100%',
+        height: '100%',
+        // Factor of the display size that should remain empty around
+        // the content
+        margin: 0.04,
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 0.2,
+        maxScale: 2.0,
+        // Display presentation control arrows
+        controls: false,
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+        // Display a presentation progress bar
+        progress: false,
+        // Display the page number of the current slide
+        // - true:    Show slide number
+        // - false:   Hide slide number
+        //
+        // Can optionally be set as a string that specifies the number formatting:
+        // - "h.v":   Horizontal . vertical slide number (default)
+        // - "h/v":   Horizontal / vertical slide number
+        // - "c":   Flattened slide number
+        // - "c/t":   Flattened slide number / total slides
+        //
+        // Alternatively, you can provide a function that returns the slide
+        // number for the current slide. The function should take in a slide
+        // object and return an array with one string [slideNumber] or
+        // three strings [n1,delimiter,n2]. See #formatSlideNumber().
+        slideNumber: false,
+        // Can be used to limit the contexts in which the slide number appears
+        // - "all":      Always show the slide number
+        // - "print":    Only when printing to PDF
+        // - "speaker":  Only in the speaker view
+        showSlideNumber: 'all',
+        // Use 1 based indexing for # links to match slide number (default is zero
+        // based)
+        hashOneBasedIndex: false,
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: false,
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: false,
+        // Enable support for jump-to-slide navigation shortcuts
+        jumpToSlide: true,
+        // Push each slide change to the browser history.  Implies `hash: true`
+        history: false,
+        // Enable keyboard shortcuts for navigation
+        keyboard: false,
+        // Optional function that blocks keyboard events when retuning false
+        //
+        // If you set this to 'focused', we will only capture keyboard events
+        // for embedded decks when they are in focus
+        keyboardCondition: null,
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+        // Enable the slide overview mode
+        overview: true,
+        // Vertical centering of slides
+        center: true,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Loop the presentation
+        loop: false,
+        // Change the presentation direction to be RTL
+        rtl: false,
+        // Changes the behavior of our navigation directions.
+        //
+        // "default"
+        // Left/right arrow keys step between horizontal slides, up/down
+        // arrow keys step between vertical slides. Space key steps through
+        // all slides (both horizontal and vertical).
+        //
+        // "linear"
+        // Removes the up/down arrows. Left/right arrows step through all
+        // slides (both horizontal and vertical).
+        //
+        // "grid"
+        // When this is enabled, stepping left/right from a vertical stack
+        // to an adjacent vertical stack will land you at the same vertical
+        // index.
+        //
+        // Consider a deck with six slides ordered in two vertical stacks:
+        // 1.1    2.1
+        // 1.2    2.2
+        // 1.3    2.3
+        //
+        // If you're on slide 1.3 and navigate right, you will normally move
+        // from 1.3 -> 2.1. If "grid" is used, the same navigation takes you
+        // from 1.3 -> 2.3.
+        navigationMode: 'default',
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+        // Flags if we should show a help overlay when the question-mark
+        // key is pressed
+        help: true,
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+        // Global override for autolaying embedded media (video/audio/iframe)
+        // - null:   Media will only autoplay if data-autoplay is present
+        // - true:   All media will autoplay, regardless of individual setting
+        // - false:  No media will autoplay, regardless of individual setting
+        autoPlayMedia: false,
+        // Global override for preloading lazy-loaded iframes
+        // - null:   Iframes with data-src AND data-preload will be loaded when within
+        //           the viewDistance, iframes with only data-src will be loaded when visible
+        // - true:   All iframes with data-src will be loaded when within the viewDistance
+        // - false:  All iframes with data-src will be loaded only when visible
+        preloadIframes: null,
+        // Can be used to globally disable auto-animation
+        autoAnimate: true,
+        // Optionally provide a custom element matcher that will be
+        // used to dictate which elements we can animate between.
+        autoAnimateMatcher: null,
+        // Default settings for our auto-animate transitions, can be
+        // overridden per-slide or per-element via data arguments
+        autoAnimateEasing: 'ease',
+        autoAnimateDuration: 1.0,
+        autoAnimateUnmatched: true,
+        // CSS properties that can be auto-animated. Position & scale
+        // is matched separately so there's no need to include styles
+        // like top/right/bottom/left, width/height or margin.
+        autoAnimateStyles: ['opacity', 'color', 'background-color', 'padding', 'font-size', 'line-height', 'letter-spacing', 'border-width', 'border-color', 'border-radius', 'outline', 'outline-offset'],
+        // Controls automatic progression to the next slide
+        // - 0:      Auto-sliding only happens if the data-autoslide HTML attribute
+        //           is present on the current slide or fragment
+        // - 1+:     All slides will progress automatically at the given interval
+        // - false:  No auto-sliding, even if data-autoslide is present
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+        // Use this method for navigation when auto-sliding (defaults to navigateNext)
+        autoSlideMethod: null,
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+        // Opens links in an iframe preview overlay
+        // Add `data-preview-link` and `data-preview-link="false"` to customize each link
+        // individually
+        previewLinks: false,
+        // Exposes the reveal.js API through window.postMessage
+        postMessage: true,
+        // Dispatches all reveal.js events to the parent window through postMessage
+        postMessageEvents: false,
+        // Focuses body when page changes visibility to ensure keyboard shortcuts work
+        focusBodyOnPageVisibilityChange: true,
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'none', // none/fade/slide/convex/concave/zoom
+        // The maximum number of pages a single slide can expand onto when printing
+        // to PDF, unlimited by default
+        pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+        // Prints each fragment on a separate slide
+        pdfSeparateFragments: true,
+        // Offset used to reduce the height of content within exported PDF pages.
+        // This exists to account for environment differences based on how you
+        // print to PDF. CLI printing options, like phantomjs and wkpdf, can end
+        // on precisely the total height of the document whereas in-browser
+        // printing has to end one pixel before.
+        pdfPageHeightOffset: -1,
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+        // The display mode that will be used to show slides
+        display: 'block',
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000
+      });
+      // Override SPACE to play / pause the video
+      Reveal.addKeyBinding(
+        {
+          keyCode: 32,
+          key: 'SPACE',
+          description: 'Play / pause video'
+        },
+        () => {
+          var currentVideos = Reveal.getCurrentSlide().slideBackgroundContentElement.getElementsByTagName("video");
+          if (currentVideos.length > 0) {
+            if (currentVideos[0].paused == true) currentVideos[0].play();
+            else currentVideos[0].pause();
+          } else {
+            Reveal.next();
+          }
+        }
+      );
+    </script>
+<img alt="ანიმაციის საწყისი კადრი" id="loading-frame" src="openings/01.jpg"/>
+<div id="welcome"><p class="eyebrow">მანქანური სწავლების კლუბი · 45 წუთი</p>
+<h1>წრფივი ალგებრა<br/>მანქანური სწავლებისთვის</h1>
+<p><strong>→ ანიმაციის დასრულება და გაჩერება</strong><br/>შემდეგი → გადადის მომდევნო სლაიდზე.<br/>← — წინა სლაიდის ბოლო კადრი · ხელახლა ← — გამეორება<br/>N — მომხსენებლის ჩანაწერები · F — სრული ეკრანი · R — გამეორება</p>
+<button id="start">პრეზენტაციის დაწყება →</button></div>
+<nav aria-label="პრეზენტაციის მართვა" id="toolbar">
+<span id="position">01 / 30</span><select aria-label="სლაიდის არჩევა" id="jump"></select>
+<button aria-label="წინა სლაიდი" id="back">←</button><button id="forward">დასრულება →</button>
+<button id="pause">პაუზა P</button><button id="replay">გამეორება R</button>
+<button id="notes">ჩანაწერები N</button><button id="full">სრული ეკრანი F</button>
+</nav><p id="notice" role="status"></p>
+<script src="lesson-data.js"></script><script src="slides-controls.js"></script>
+</body>
+</html>

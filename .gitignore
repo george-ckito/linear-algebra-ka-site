@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.venv/
+.render-cache/
+partial_movie_files/
+Thumbs.db
+.DS_Store
